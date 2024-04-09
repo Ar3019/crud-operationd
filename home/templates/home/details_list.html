@@ -1,0 +1,73 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+
+
+<!-- {% if request.user.is_authenticated %}
+<p>{{request.user}}</p> -->
+<!-- <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+<a href="{% url 'login'%}">Login</a>
+{% endif %} -->
+
+<hr>
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Full Name</td>
+            <td>Phone Number</td>
+            <td>Age</td>
+            <td>Address</td>
+            <td>Department</td>
+            <td>Email</td>
+
+        </tr>
+    </thead>
+
+
+ 
+    <tbody>
+        <!-- {% if request.user.is_authenticated %} -->
+
+        <div style="text-align: right;">
+            <p>{{request.user}}</p>
+          </div>
+            <p style="color: rgb(81, 133, 201); font-family: Arial, sans-serif;">Welcome, {{user_details.name}}</p>
+               
+            
+              
+
+                    <tr>
+                        <td>{{user_details.name}}</td>
+                        <td>{{user_details.mobile_num}}</td>
+                        <td>{{user_details.age}}</td>
+                        <td>{{user_details.address}}</td>
+                        <td>{{user_details.department.title}}</td>
+                        <td>{{user_details.email}}</td>
+                        <td>
+                            <a href="{% url 'detailsupdate' user_details.id %}" class="btn text-secondary px-0">
+                                <i class="far fa-edit fa-lg"></i>
+                            </a>
+                            <form action="{% url 'details_delete' user_details.id %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-default btn-sm">
+                                   <a> <i class="far fa-trash-alt fa-lg text-danger float-right"></i></a>
+                                </button>
+                            </form>
+                        </td>
+
+                    </tr>
+                <div> 
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link float-right">logout</button>
+                    </form>
+                </div>
+        <!-- {% endif %}  -->
+    </tbody>
+
+</table>
+            
+
+{% endblock content %}

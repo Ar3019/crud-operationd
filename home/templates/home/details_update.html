@@ -1,0 +1,86 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+            {{form.name|as_crispy_field}}
+        </div>
+    </div>
+    
+   
+    <div class="row">
+        <div class="col-md-4">
+            {{form.mobile_num|as_crispy_field}}
+        </div>
+        <div class="col-md-2">
+            {{form.age|as_crispy_field}}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-7">
+            {{form.address|as_crispy_field}}
+        </div>
+        <div class="col-md-6">
+            {{form.department|as_crispy_field}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+        {{form.email|as_crispy_field}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+        {{form.password|as_crispy_field}}
+        </div>
+    </div>
+
+
+
+    {% for message in messages%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    
+
+    <div class="row">
+        <div class="col-md-6">
+        {{form.confirm_password|as_crispy_field}}
+        </div>
+    </div>
+
+
+
+
+   
+
+
+    <div class="row">
+        <div class = "col-md-2">
+            <button type="submit" class="btn btn-outline-primary"><i class="fas fa-database"></i>Update</button>
+        </div>
+        <div>
+            <a href="{% url 'detail'%}" class="btn btn-outline-secondary float-left">
+                <i class="fas fa-stream"></i>Back
+            </a>
+        </div>
+
+    </div>
+    <!-- <div>
+        <p>Have already an account <a href="{% url 'login' %}">Login here</a></p>
+        
+    </div> -->
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,86 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<section>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Login</h2>
+
+
+
+
+
+
+
+
+
+<!-- <h1>Login</h1> -->
+
+{% for message in messages%}
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">{{message}}</h4>
+    
+</div>
+   
+{% endfor %}
+
+
+
+<form action="" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <!-- {{form.as_p}} -->
+
+
+    <div class="form-outline mb-4">
+        <input type="text" placeholder="Email address" required name="email" class="form-control form-control-lg" type = "email">
+      </div>
+      <div class="form-outline mb-4">
+        <input type="password" placeholder="Password" required name="password" class="form-control form-control-lg" type = "password">
+      </div>
+      
+
+
+
+
+
+
+
+
+
+    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+    
+
+
+    
+    <!-- <input type="submit" value="Login"> -->
+    <a href="{% url 'detailform' %}">Create an account</a>
+</form>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+
+{% endblock content %}
